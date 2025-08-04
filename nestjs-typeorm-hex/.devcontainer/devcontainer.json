@@ -1,39 +1,46 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-	"name": "NestJS Dev Container",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"build": {
+  "name": "NestJS Dev Container",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
     "dockerfile": "Dockerfile"
-  	},
+  },
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-	"workspaceMount": "source=${localWorkspaceFolder}/../,target=/workspaces/NestJS_Examples,type=bind",
-  	"workspaceFolder": "/workspaces/NestJS_Examples/nestjs-typeorm-hex",
-	
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // Additional features
+  "features": {
+    "ghcr.io/nils-geistmann/devcontainers-features/zsh:0": {}, // Zsh shell
+    "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions.git"
+    }
+  },
+  "workspaceMount": "source=${localWorkspaceFolder}/../,target=/workspaces/NestJS_Examples,type=bind",
+  "workspaceFolder": "/workspaces/NestJS_Examples/nestjs-typeorm-hex",
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "npm install",
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
 
-	// Configure tool-specific properties.
-	"customizations": {
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "bash -i ./.devcontainer/post_create.sh",
+  "postStartCommand": "bash ./.devcontainer/scripts/check_git_config.sh",
+
+  // Configure tool-specific properties.
+  "customizations": {
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-		"ms-azuretools.vscode-containers",
+        "ms-azuretools.vscode-containers",
         "GitHub.copilot",
-		"GitHub.copilot-chat",
+        "GitHub.copilot-chat",
         "sonarsource.sonarlint-vscode",
-		"telesoho.vscode-markdown-paste-image",
-		"mechatroner.rainbow-csv"
+        "telesoho.vscode-markdown-paste-image",
+        "mechatroner.rainbow-csv"
       ]
     }
-  	}
+  }
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
 }
