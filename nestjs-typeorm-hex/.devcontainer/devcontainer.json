@@ -17,6 +17,9 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder}/../,target=/workspaces/NestJS_Examples,type=bind",
   "workspaceFolder": "/workspaces/NestJS_Examples/nestjs-typeorm-hex",
+  "runArgs": [
+    "--network=nestjs_hex_network"
+  ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [3000],
