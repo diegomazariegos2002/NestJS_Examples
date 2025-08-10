@@ -22,7 +22,7 @@ export class User {
   }
 
   public nameAndEmail() {
-    return `${this.name} - ${this.email}`;
+    return `${this.name.value} - ${this.email.value}`;
   }
 
   public toPlainObject() {

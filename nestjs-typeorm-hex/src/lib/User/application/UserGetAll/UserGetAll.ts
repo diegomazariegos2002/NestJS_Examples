@@ -2,7 +2,7 @@ import { User } from '../../domain/User';
 import { UserRepository } from '../../domain/UserRepository';
 
 export class UserGetAll {
-  constructor(private repository: UserRepository) {}
+  constructor(private readonly repository: UserRepository) {}
 
   async run(): Promise<User[]> {
     return this.repository.getAll();

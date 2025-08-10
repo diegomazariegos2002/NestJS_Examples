@@ -6,7 +6,7 @@ import { UserName } from '../../domain/UserName';
 import { UserRepository } from '../../domain/UserRepository';
 
 export class UserEdit {
-  constructor(private repository: UserRepository) {}
+  constructor(private readonly repository: UserRepository) {}
 
   async run(
     id: string,

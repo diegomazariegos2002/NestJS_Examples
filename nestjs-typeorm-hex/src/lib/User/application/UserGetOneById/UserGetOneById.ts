@@ -4,7 +4,7 @@ import { UserNotFoundError } from '../../domain/UserNotFoundError';
 import { UserRepository } from '../../domain/UserRepository';
 
 export class UserGetOneById {
-  constructor(private repository: UserRepository) {}
+  constructor(private readonly repository: UserRepository) {}
 
   async run(id: string): Promise<User> {
     const user = await this.repository.getOneById(new UserId(id));
