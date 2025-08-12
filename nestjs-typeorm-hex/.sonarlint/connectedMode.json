@@ -1,0 +1,4 @@
+{
+    "sonarQubeUri": "http://sonarqube:9000",
+    "projectKey": "nestjs-hexagonal"
+}

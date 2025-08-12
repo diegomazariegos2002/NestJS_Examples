@@ -1,6 +1,6 @@
 {
     "sonarlint.connectedMode.project": {
-        "connectionId": "http-sonarqube-9000",
+        "connectionId": "http-host-docker-internal-9000",
         "projectKey": "nestjs-hexagonal"
     }
 }
